@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <Properties>
+        <Property name="app.name">liquidity</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %c{1.} - %msg%n"/>
+        </Console>
+        <!--<RollingFile name="RollingFile"-->
+                     <!--fileName="/opt/app/logs/${tomcat.instance.name}/${app.name}-action.log"-->
+                     <!--filePattern="/opt/app/logs/${tomcat.instance.name}/${app.name}-action.%d{yyyy-MM-dd_HH}.log.gz">-->
+            <!--<PatternLayout charset="utf-8">-->
+                <!--<Pattern>%m%n</Pattern>-->
+            <!--</PatternLayout>-->
+            <!--<Policies>-->
+                <!--<TimeBasedTriggeringPolicy interval="1" modulate="true"/>-->
+            <!--</Policies>-->
+        <!--</RollingFile>-->
+
+        <!--<TraceAppender name="TraceAppender" logFolder="/opt/app/logs/${tomcat.instance.name}" fileMaxSize="1">-->
+            <!--<PatternLayout charset="utf-8">-->
+                <!--<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>-->
+            <!--</PatternLayout>-->
+        <!--</TraceAppender>-->
+    </Appenders>
+    <loggers>
+        <logger name="com.miaoqian.core.log.ActionLogger">
+            <!--<AppenderRef ref="RollingFile" level="info"/>-->
+        </logger>
+        <logger name="org.springframework" level="warn"/>
+        <logger name="org.hibernate" level="warn"/>
+        <logger name="org.neo4j" level="error"/>
+        <logger name="com.miaoqian.core.platform" level="info"/>
+        <root level="error">
+            <appender-ref ref="Console"/>
+            <!--<appender-ref ref="TraceAppender"/>-->
+        </root>
+    </loggers>
+</configuration>
